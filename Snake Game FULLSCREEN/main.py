@@ -47,7 +47,8 @@ while True:
     for segment in snake.segments[1:]: #! The very first segment is the Snake's head, so starting from the second segment is the best idea to skip the Snake's head.
         #* Detect collision with itself; a.k.a detect Snake hitting its own body
         if snake.segments[0].distance(segment) < 10:
-            break
+            break #TODO: Fix this bug that Snake Game doesn't end when the Snake hits its own body. The game should end when the Snake collides with itself, but currently, it continues to run. This needs to be addressed in the collision detection logic.
+        break
 
 score.game_over()
 screen.mainloop()
