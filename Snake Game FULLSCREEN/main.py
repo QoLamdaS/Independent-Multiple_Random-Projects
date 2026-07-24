@@ -7,7 +7,7 @@ import time
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
-screen.title("the Snake Game VERSION!!!!!!")
+screen.title("Extended🐍Snake_Game🖥️FULLSCREEN!!!!")
 screen.tracer(0)
 
 snake = SnakeBody()
