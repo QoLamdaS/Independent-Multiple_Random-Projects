@@ -5,14 +5,14 @@ class ScoreBoard(Turtle):
         '''Initializes the scoreboard object born inheriting from the Turtle class and sets its attributes and methods. '''
         super().__init__()
         self.score = 0
-        self.color("yellow1")
+        self.color("lime")
         self.penup()
         self.hideturtle()
         self.goto(0, 260)
         self.update_scoreboard()
 
     def update_scoreboard(self):
-        self.write(f"Score: {self.score}", align="center", font=("Times New Roman", 24, "normal"))
+        self.write(f"Score: {self.score}", align="center", font=("Courier", 24, "normal"))
 
     def increase_score(self):
         self.score += 1
@@ -21,4 +21,4 @@ class ScoreBoard(Turtle):
 
     def game_over(self):
         self.goto(0, 0)
-        self.write("GAME OVER!!!", align="center", font=("Times New Roman", 48, "bold"))
+        self.write("GAME OVER!!!", align="center", font=("Courier", 48, "bold"))
