@@ -32,12 +32,12 @@ while True:
 
     if snake.segments[0].xcor() > 290 or snake.segments[0].xcor() < -290 or snake.segments[0].ycor() > 290 or snake.segments[0].ycor() < -290:
         #* Detect collision with wall; a.k.a detect Snake hitting the maximum wall from player view
-        game_is_on = False
+        break
 
     for segment in snake.segments[1:]: #! The very first segment is the Snake's head, so starting from the second segment is the best idea to skip the Snake's head.
         #* Detect collision with itself; a.k.a detect Snake hitting its own body
         if snake.segments[0].distance(segment) < 10:
-            game_is_on = False
+            break
 
 score.game_over()
 screen.mainloop()
