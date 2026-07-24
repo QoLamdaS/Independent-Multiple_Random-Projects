@@ -5,10 +5,20 @@ from the_scoreboard import ScoreBoard
 import time
 
 screen = Screen()
-screen.setup(width=600, height=600)
+screen.setup(width=1.0, height=1.0)
 screen.bgcolor("black")
 screen.title("Extended🐍Snake_Game🖥️FULLSCREEN!!!!")
 screen.tracer(0)
+
+#* Enable Native Fullscreen
+canvas_root = screen.getcanvas().winfo_toplevel()
+canvas_root.attributes("-fullscreen", True)
+
+screen.onkey(screen.bye, "Escape") # Optional: Press 'Escape' to exit fullscreen easily
+
+#* Calculate dynamic dynamic wall boundaries based on actual screen size
+half_width = screen.window_width() / 2 - 20
+half_height = screen.window_height() / 2 - 20
 
 snake = SnakeBody()
 food = FoodSnake() 
@@ -30,7 +40,7 @@ while True:
         snake.extend()
         score.increase_score()
 
-    if snake.segments[0].xcor() > 290 or snake.segments[0].xcor() < -290 or snake.segments[0].ycor() > 290 or snake.segments[0].ycor() < -290:
+    if snake.segments[0].xcor() > half_width or snake.segments[0].xcor() < -half_width or snake.segments[0].ycor() > half_height or snake.segments[0].ycor() < -half_height:
         #* Detect collision with wall; a.k.a detect Snake hitting the maximum wall from player view
         break
 
