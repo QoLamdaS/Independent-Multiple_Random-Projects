@@ -30,7 +30,8 @@ screen.onkey(snake.down, "s")
 screen.onkey(snake.left, "a")
 screen.onkey(snake.right, "d")
 
-while True:
+game_is_on = True
+while game_is_on: #? I really have no idea why should game_is_on = False be here instead of while True loop with break statement. I don't know
     screen.update()
     time.sleep(0.1)
     snake.move()
@@ -42,13 +43,12 @@ while True:
 
     if snake.segments[0].xcor() > half_width or snake.segments[0].xcor() < -half_width or snake.segments[0].ycor() > half_height or snake.segments[0].ycor() < -half_height:
         #* Detect collision with wall; a.k.a detect Snake hitting the maximum wall from player view
-        break
+        game_is_on = False 
 
     for segment in snake.segments[1:]: #! The very first segment is the Snake's head, so starting from the second segment is the best idea to skip the Snake's head.
         #* Detect collision with itself; a.k.a detect Snake hitting its own body
         if snake.segments[0].distance(segment) < 10:
-            break #TODO: Fix this bug that Snake Game doesn't end when the Snake hits its own body. The game should end when the Snake collides with itself, but currently, it continues to run. This needs to be addressed in the collision detection logic.
-        break
+            game_is_on = False #? I really have no idea why should game_is_on = False be here instead of while True loop with break statement. I don't know
 
 score.game_over()
 screen.mainloop()
