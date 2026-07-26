@@ -3,7 +3,7 @@ from the_snake_body import SnakeBody
 from the_food import FoodSnake
 from the_scoreboard import ScoreBoard
 import time
-
+#! Building this independent project finally completed as I wanted to. SATISFACTORY!
 screen = Screen()
 screen.setup(width=1.0, height=1.0)
 screen.bgcolor("black")
